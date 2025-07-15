@@ -1,0 +1,12 @@
+2025-07-10 18:37:55.047352 - Query: SELECT * FROM users WHERE username='' OR '1'='1' AND password='xx' - Response: Login Failed!
+2025-07-10 18:39:01.084971 - Query: SELECT * FROM users WHERE username='admin' AND password='admin' - Response: Login Successful (Vulnerable)!
+2025-07-10 18:39:20.537005 - Query: SECURE_QUERY - Response: Login Successful (Secure)!
+2025-07-10 18:59:03.545877 - Query: SELECT * FROM users WHERE username='' OR '1'='1' --' AND password='dd' - Response: Error in query execution.
+2025-07-10 19:00:33.815690 - Query: SELECT * FROM users WHERE username='' OR '1'='1'  --' AND password='abc' - Response: Error in query execution.
+2025-07-10 19:02:11.939438 - Query: SELECT * FROM users WHERE username='' OR '1'='1' --  ' AND password='xvq' - Response: Login Successful (Vulnerable)!
+2025-07-10 19:02:59.103224 - Query: SECURE_QUERY - Response: Login Failed!
+2025-07-10 19:03:11.466001 - Query: SELECT * FROM users WHERE username='' OR '1'='1' -- ' AND password='dd' - Response: Login Successful (Vulnerable)!
+2025-07-10 19:04:46.601275 - Query: SELECT * FROM users WHERE username='admin' -- ' AND password='abc' - Response: Login Successful (Vulnerable)!
+2025-07-12 10:28:53.684675 - Query: SELECT * FROM users WHERE username='' OR '1'='1' --' AND password='vv' - Response: Error in query execution.
+2025-07-12 10:29:02.155225 - Query: SELECT * FROM users WHERE username='' OR '1'='1' -- ' AND password='vv' - Response: Login Successful (Vulnerable)!
+2025-07-12 10:29:34.093318 - Query: SECURE_QUERY - Response: Login Failed!
