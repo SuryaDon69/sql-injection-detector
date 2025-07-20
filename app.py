@@ -1,4 +1,4 @@
-
+from detector import detect_sqli
 from flask import Flask, render_template, request
 import mysql.connector
 from datetime import datetime
@@ -24,9 +24,11 @@ def init_db():
     conn.close()
 
 def log_attempt(query, response):
-    with open(LOG_FILE, "a") as f:
-        log = f"{datetime.now()} - Query: {query} - Response: {response}\n"
+    flag = "[SQLi DETECTED]" if "Detected" in response else "[OK]"
+    log = f"{datetime.now()} {flag} - Query: {query} - Response: {response}\n"
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(log)
+
 
 @app.route("/")
 def index():
@@ -38,6 +40,7 @@ def vulnerable_login():
     if request.method == "POST":
         uname = request.form["username"]
         pwd = request.form["password"]
+
         conn = get_db_connection()
         c = conn.cursor()
         query = f"SELECT * FROM users WHERE username='{uname}' AND password='{pwd}'"
@@ -60,6 +63,13 @@ def secure_login():
     if request.method == "POST":
         uname = request.form["username"]
         pwd = request.form["password"]
+
+         # Detection step
+        if detect_sqli(uname) or detect_sqli(pwd):
+            message = "⚠️ SQL Injection Detected! Request blocked."
+            log_attempt(f"Blocked Input: username={uname}, password={pwd}", message)
+            return render_template("login.html", message=message)
+
         conn = get_db_connection()
         c = conn.cursor()
         try:
@@ -78,7 +88,7 @@ def secure_login():
 @app.route("/logs")
 def logs():
     if os.path.exists(LOG_FILE):
-        with open(LOG_FILE, "r") as f:
+        with open(LOG_FILE, "r", encoding="utf-8") as f:
             log_data = f.readlines()
     else:
         log_data = ["No logs found."]
