@@ -1,15 +1,15 @@
 Screenshots:-
 Home Page :-
-<img width="1917" height="1038" alt="image" src="https://github.com/user-attachments/assets/bcc17fd6-0b12-4557-b0c3-453e919c1f40" />
+<img width="1918" height="1033" alt="image" src="https://github.com/user-attachments/assets/8cad0f1b-34ac-4ff5-b6e3-fcbf3b8e1694" />
 
 Vulnerable Login:-
-<img width="1908" height="985" alt="image" src="https://github.com/user-attachments/assets/159510e5-cd95-4f76-b862-4590b1d1ab0f" />
+<img width="1918" height="1001" alt="image" src="https://github.com/user-attachments/assets/c146d751-2287-4320-a914-7082d1e56688" />
 
 Secure Login:-
-<img width="1912" height="982" alt="image" src="https://github.com/user-attachments/assets/d4fde4b4-5c0c-4784-a008-edf998b03347" />
+<img width="1915" height="998" alt="image" src="https://github.com/user-attachments/assets/d44a24ac-32a7-4fc0-924a-10365e43b050" />
 
 Logs:-
-<img width="1918" height="997" alt="image" src="https://github.com/user-attachments/assets/11622856-dd15-4fa3-b4df-e2946a3d6d3a" />
+<img width="1918" height="993" alt="image" src="https://github.com/user-attachments/assets/1891b5f5-e2a6-4697-a236-ea8ac94bb447" />
 
 
 MySQL-Based SQL Injection Playground Setup Instructions:
